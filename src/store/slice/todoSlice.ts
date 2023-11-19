@@ -32,19 +32,19 @@ export const todoSlice = createSlice({
       const { dataList } = state
       const index = dataList.findIndex((item) => item.id === action.payload)
       const newData: TodoType = {
-        id: dataList[index].id,
-        text: dataList[index].text,
+        ...dataList[index],
         editStatus: false,
       }
       // return
-      state.dataList[index] = { ...newData, editStatus: true }
+      state.dataList[index].editStatus = true
       state.storage.push(newData)
     },
     updateTodo(state, action) {
       const { storage } = state
       const index = storage.findIndex((item) => item.id === action.payload.id)
+
       // return
-      state.storage[index] = { ...storage[index], text: action.payload.text }
+      state.storage[index].text = action.payload.text
     },
     saveEdit(state, action) {
       const { dataList, storage } = state
@@ -59,14 +59,13 @@ export const todoSlice = createSlice({
       state.storage.splice(storageIndex, 1)
     },
     cancelEdit(state, action) {
-      const { dataList } = state
+      const { dataList, storage } = state
       const dataListIndex = dataList
         .findIndex((item) => item.id === action.payload)
-      const storageIndex = dataList
+      const storageIndex = storage
         .findIndex((item) => item.id === action.payload)
-      const itemData = dataList[dataListIndex]
       // return
-      state.dataList[dataListIndex] = { ...itemData, editStatus: false }
+      state.dataList[dataListIndex].editStatus = false
       state.storage.splice(storageIndex, 1)
     },
   },
