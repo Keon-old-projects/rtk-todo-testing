@@ -1,71 +1,89 @@
-# Getting Started with Create React App
+# Vite React simple template
+>
+> pnpm + React 18 + TypeScript + Vitest + Testing Library + ESlint
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+>
+> Built with type safety, scalability, and developer experience in mind. A batteries included Vite + React template.
 
-## Available Scripts
+* pnpm - A strict and efficient alternative to npm with up to 3x faster performance
+* TypeScript - A typed superset of JavaScript designed with large scale applications in mind
+* ESLint(Airbnb) - Static code analysis to help find problems within a codebase
+* Vite - Feature rich and highly optimized frontend tooling with TypeScript support out of the box
+* Vitest - A blazing fast unit test framework powered by Vite
+* React Testing Library - A very light-weight, best practice first, solution for testing React components
 
-In the project directory, you can run:
+## Requirements
 
-### `npm start`
+* NodeJS 18+
+* pnpm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Getting started is a simple as cloning the repository
 
-### `npm test`
+```
+git clone git@github.com:keon981/vite-tsx-app.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Changing into the new directory
 
-### `npm run build`
+```
+cd vite-tsx-app
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Removing the .git folder (and any additional files, folders or dependencies you may not need)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+rm -rf .git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Installing dependencies
 
-### `npm run eject`
+```
+pnpm install
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+And running the setup script (initializes git repository)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+pnpm run setup
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Congrats! You're ready to starting working on that new project!
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+If you'd rather run the commands above in one go, check out the command below:
 
-## Learn More
+```
+git clone git@github.com:keon981/vite-tsx-app.git &&\
+cd vite-tsx-app &&\
+rm -rf .git &&\
+pnpm install &&\
+pnpm run setup
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Testing
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Unit testing is handled by React Testing Library and Vitest while End-to-End (E2E) Testing is conducted by Playwright.
 
-### Code Splitting
+If you'd like to run all tests, Unit and E2E alike, execute the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+pnpm run test
+```
 
-### Analyzing the Bundle Size
+### Unit Testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+When running unit test scripts, it is assumed that unit tests will be colocated with the source files. Take a look at the placeholder README file in `src/components` for [an example](src/components/README.md).
 
-### Making a Progressive Web App
+If you'd like to execute unit tests specifically, the below command will execute vitest:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+pnpm run test:unit
+```
 
-### Advanced Configuration
+If instead you are interested in coverage reporting, run:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# rtk-todo-testing
+```
+pnpm run coverage
+```
